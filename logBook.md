@@ -8,3 +8,7 @@ Ceci est le jour où j'ai sérieusement commencé le projet. Je l'ai débute ave
 ### 01.09.2026
 
 Aujourd'hui, j'ai continué à améliorer l'environnement du developpement de projet. Le temps a été notamment consacré à la configuration de **NuxtUI** et **Layout** du site J'ai également conçu le planning adapté pour le projet.
+
+### 07.09.2026
+
+Cette fois j'ai pris le temps à configurer plus profondement le **Layout** du site. La librairie Nuxt UI était trop facile est compréhensible à faire cela.
