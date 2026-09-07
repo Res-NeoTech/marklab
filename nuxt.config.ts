@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     db: "postgresql",
     kv: true
   },
+  css: ['~/assets/css/main.css'],
 
   modules: [
     '@nuxt/eslint',
