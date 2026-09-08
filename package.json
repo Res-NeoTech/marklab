@@ -16,6 +16,7 @@
     "@nuxt/image": "^2.1.0",
     "@nuxt/ui": "^4.11.0",
     "@nuxthub/core": "^0.10.8",
+    "@pinia/nuxt": "^1.0.2",
     "@tiptap/core": "^3.30.5",
     "@tiptap/extension-bubble-menu": "^3.30.5",
     "@tiptap/extension-code": "^3.30.5",
@@ -36,6 +37,7 @@
     "drizzle-orm": "^0.45.2",
     "eslint": "^10.9.1",
     "nuxt": "^4.5.2",
+    "pinia": "^4.0.3",
     "postgres": "^3.4.9",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
@@ -43,6 +45,7 @@
     "vue-router": "^5.3.0"
   },
   "devDependencies": {
+    "@nuxtjs/mdc": "^0.23.1",
     "drizzle-kit": "^0.31.10"
   },
   "allowScripts": {

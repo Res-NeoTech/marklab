@@ -1,3 +1,5 @@
+import { bundledLanguages, type BundledLanguage } from 'shiki'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -13,6 +15,14 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/ui',
     '@nuxthub/core',
-    '@formkit/auto-animate'
-  ]
+    '@formkit/auto-animate',
+    '@nuxtjs/mdc',
+    '@pinia/nuxt'
+  ],
+
+  mdc: {
+    highlight: {
+      langs: Object.keys(bundledLanguages) as BundledLanguage[]
+    }
+  }
 })
