@@ -12,3 +12,7 @@ Aujourd'hui, j'ai continué à améliorer l'environnement du developpement de pr
 ### 07.09.2026
 
 Cette fois j'ai pris le temps à configurer plus profondement le **Layout** du site. La librairie Nuxt UI était trop facile est compréhensible à faire cela.
+
+### 08.09.2026
+
+Pendant ce cours, J'a debougé les problémes avec **Drizzle ORM** qui étaient en lien avec la migration. Même si la schema des données n'est pas encore compléte, configurer une base solide pour le futur est déjà crucial. Même si je n'ai pas vraiment encore débuté le développement back-end, j'aurais moins de travail sur ça prochainement. L'autre moitié du cours à l'aide des paquets comme `@nuxtjs/mdc` j'ai déjà réussi à faire une saisie et visualisation basique du **Markdown** et la persistence de la saisie d'utilisateur grâce à `pinia`. Même s'il reste des améliorations à faire, les fonctionnalités principales de l'application sont desormais implémentées.
