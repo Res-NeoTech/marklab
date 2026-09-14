@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { SplitterItem } from '@nuxt/ui'
 import { useDocumentStore } from '~/stores/useDocumentStore';
+import { useUserPrefsStore } from '~/stores/useUserPrefsStore';
+
+const userPrefsStore = useUserPrefsStore();
 
 const documentStore = useDocumentStore();
 const title = ref<string>(documentStore.title);
@@ -17,6 +20,10 @@ watch(markdown, (newVal) => {
 
 onMounted(() => {
     resizeTextarea()
+
+    if(userPrefsStore.layoutPref === "right") {
+        swapLayouts();
+    }
 })
 
 const textarea = ref<HTMLTextAreaElement | null>(null)
@@ -45,6 +52,7 @@ const swapLayouts = () => {
         splitterItems.value[1]?.slot,
         splitterItems.value[0]?.slot
     ]
+    userPrefsStore.layoutPref = splitterItems.value[0]!.slot as string;
     resizeTextarea();
 }
 </script>
