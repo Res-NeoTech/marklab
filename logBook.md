@@ -16,3 +16,7 @@ Cette fois j'ai pris le temps à configurer plus profondement le **Layout** du s
 ### 08.09.2026
 
 Pendant ce cours, J'a debougé les problémes avec **Drizzle ORM** qui étaient en lien avec la migration. Même si la schema des données n'est pas encore compléte, configurer une base solide pour le futur est déjà crucial. Même si je n'ai pas vraiment encore débuté le développement back-end, j'aurais moins de travail sur ça prochainement. L'autre moitié du cours à l'aide des paquets comme `@nuxtjs/mdc` j'ai déjà réussi à faire une saisie et visualisation basique du **Markdown** et la persistence de la saisie d'utilisateur grâce à `pinia`. Même s'il reste des améliorations à faire, les fonctionnalités principales de l'application sont desormais implémentées.
+
+### 14.09.2026
+
+Je me suis concentrée aujourd'hui sur l'expérience utilisateur. Avant la grande pause j'ai amélioré l'éditeur afin de prevoir differentes cas de changement de taille de la saisie Markdown et changement de la taille automatiquement lors de la saisie, ainsi qu'éliminer les bugs qui peuvent arriver pendant l'édition. La fonctionnalité principale décrite avant et desormais mieux implementé et plus agréable à utiliser. Le reste du cours, j'ai continué à utilise **NuxtUI** afin de créer le champ du titre du document et le bouton pour swap les layouts. J'ai également utilisé `pinia-plugin-persistedstate` pour `pinia` afin de persister dans le **localStorage** les infos sur le document et les préferences utilisateur.
