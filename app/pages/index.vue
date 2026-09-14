@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import type { SplitterItem } from '@nuxt/ui'
-import { useMarkdownStore } from '~/stores/useMarkdownStore';
+import { useDocumentStore } from '~/stores/useDocumentStore';
 
-const markdownStore = useMarkdownStore();
-const markdown = ref<string>(markdownStore.markdown);
+const documentStore = useDocumentStore();
+const title = ref<string>(documentStore.title);
+const markdown = ref<string>(documentStore.markdown);
+
+watch(title, (newVal) => {
+    documentStore.title = newVal;
+})
 
 watch(markdown, (newVal) => {
-    markdownStore.markdown = newVal;
+    documentStore.markdown = newVal;
     nextTick(resizeTextarea)
 });
 
@@ -30,26 +35,43 @@ const resizeTextarea = () => {
     })
 }
 
-const splitterItems: SplitterItem[] = [
+const splitterItems = ref<SplitterItem[]>([
     { slot: 'left', minSize: 20, defaultSize: 50, class: 'text-muted font-medium' },
     { slot: 'right', minSize: 20, defaultSize: 50, class: 'text-muted font-medium' }
-]
+])
+
+const swapLayouts = () => {
+    ;[splitterItems.value[0]!.slot, splitterItems.value[1]!.slot] = [
+        splitterItems.value[1]?.slot,
+        splitterItems.value[0]?.slot
+    ]
+    resizeTextarea();
+}
 </script>
 
 <template>
-
+    <div class="w-full flex justify-center mt-5 mb-5 gap-2 sticky top-20 z-1">
+        <UTooltip arrow text="Click to rename">
+            <UInput icon="mingcute:markdown-line" size="xl" variant="outline" v-model="title" placeholder="Document Title" />
+        </UTooltip>
+        <UTooltip arrow text="Swap layouts">
+            <UButton icon="mingcute:transfer-3-line" size="xl" variant="solid" @click="swapLayouts" />
+        </UTooltip>
+    </div>
     <div class="w-full min-h-250">
         <USplitter id="splitter-custom-handle-example" :items="splitterItems" @resize="resizeTextarea" :ui="{
             handle:
                 'data-[orientation=horizontal]:w-px data-[orientation=vertical]:h-px bg-border transition-colors data-[state=hover]:bg-primary data-[state=drag]:bg-primary'
         }" class="rounded-lg border border-default overflow-hidden">
             <template #left>
-                <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="w-full min-h-250 resize-none border-0 outline-none bg-transparent p-4 overflow-y-auto"
+                <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                    class="w-full min-h-250 resize-none border-0 outline-none bg-transparent p-4 overflow-y-auto"
                     placeholder="Start typing..." v-model="markdown" ref="textarea" />
             </template>
 
             <template #right>
-                <p v-if="markdown === null || markdown === ''" class="text-center self-center w-full" >Start typing on the {{ splitterItems[0]?.slot }} window, your content will be rendered here...</p>
+                <p v-if="markdown === null || markdown === ''" class="text-center self-center w-full">Start typing on
+                    the {{ splitterItems[0]?.slot }} window, your content will be rendered here...</p>
                 <div v-else class="w-full h-full p-4">
                     <MDC :value="markdown" tag="article" class="text-wrap wrap-break-word" />
                 </div>

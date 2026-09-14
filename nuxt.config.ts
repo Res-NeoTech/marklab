@@ -17,7 +17,8 @@ export default defineNuxtConfig({
     '@nuxthub/core',
     '@formkit/auto-animate',
     '@nuxtjs/mdc',
-    '@pinia/nuxt'
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt'
   ],
 
   mdc: {
