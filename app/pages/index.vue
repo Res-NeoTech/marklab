@@ -12,15 +12,15 @@ const markdown = ref<string>(documentStore.markdown);
 const titleInput = useTemplateRef("titleInput");
 
 useHead({
-	title: `${title.value} | MarkLab`,
-	meta: [
-		{ name: 'description', content: 'MarkLab is a simple, cloud-focused Markdown editing tool.' },
-	],
+    title: `${title.value || 'Untitled document'} | MarkLab`,
+    meta: [
+        { name: 'description', content: 'MarkLab is a simple, cloud-focused Markdown editing tool.' },
+    ],
 });
 
 watch(title, (newVal) => {
     documentStore.title = newVal;
-    document.title = `${newVal} | MarkLab`;
+    document.title = `${newVal || 'Untitled document'} | MarkLab`;
 })
 
 watch(markdown, (newVal) => {

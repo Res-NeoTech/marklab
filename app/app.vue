@@ -40,6 +40,7 @@ const items = ref<NavigationMenuItem[]>([
       {
         label: 'Markdown',
         description: 'Export this document to Markdown file.',
+        to: '/export/markdown',
         icon: 'mingcute:markdown-line'
       },
     ]
