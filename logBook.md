@@ -20,3 +20,7 @@ Pendant ce cours, J'a debougé les problémes avec **Drizzle ORM** qui étaient 
 ### 14.09.2026
 
 Je me suis concentrée aujourd'hui sur l'expérience utilisateur. Avant la grande pause j'ai amélioré l'éditeur afin de prevoir differentes cas de changement de taille de la saisie Markdown et changement de la taille automatiquement lors de la saisie, ainsi qu'éliminer les bugs qui peuvent arriver pendant l'édition. La fonctionnalité principale décrite avant et desormais mieux implementé et plus agréable à utiliser. Le reste du cours, j'ai continué à utilise **NuxtUI** afin de créer le champ du titre du document et le bouton pour swap les layouts. J'ai également utilisé `pinia-plugin-persistedstate` pour `pinia` afin de persister dans le **localStorage** les infos sur le document et les préferences utilisateur.
+
+### 15.09.2026
+
+La prémiere partie du cours avant la pause, j'ai pris le temps à mettre en place la réaction de l'application sur certains touches clavier pour rendre **UX** de l'application plus fluide et intuitive. Après la grande pause, j'ai pu implementer l'exportation du document courant vers **.md** et **.txt**. Vers la fin, j'ai déjà commencé à utiliser l'outil que j'ai developpé pour rédiger ce journal de bord. Vu que j'ai déjà implementé l'exportation, je prends un jour d'avance sur le planning prévu.
