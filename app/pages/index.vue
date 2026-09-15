@@ -9,8 +9,18 @@ const documentStore = useDocumentStore();
 const title = ref<string>(documentStore.title);
 const markdown = ref<string>(documentStore.markdown);
 
+const titleInput = useTemplateRef("titleInput");
+
+useHead({
+	title: `${title.value} | MarkLab`,
+	meta: [
+		{ name: 'description', content: 'MarkLab is a simple, cloud-focused Markdown editing tool.' },
+	],
+});
+
 watch(title, (newVal) => {
     documentStore.title = newVal;
+    document.title = `${newVal} | MarkLab`;
 })
 
 watch(markdown, (newVal) => {
@@ -21,8 +31,20 @@ watch(markdown, (newVal) => {
 onMounted(() => {
     resizeTextarea()
 
-    if(userPrefsStore.layoutPref === "right") {
+    if (userPrefsStore.layoutPref === "right") {
         swapLayouts();
+    }
+})
+
+useHotkeys((event) => {
+    if (event.ctrlKey && event.key === 's') {
+        event.preventDefault()
+        swapLayouts();
+    }
+
+    if (event.ctrlKey && event.key === 'Enter') {
+        event.preventDefault()
+        titleInput.value?.inputRef?.focus()
     }
 })
 
@@ -59,10 +81,11 @@ const swapLayouts = () => {
 
 <template>
     <div class="w-full flex justify-center mt-5 mb-5 gap-2 sticky top-20 z-1">
-        <UTooltip arrow text="Click to rename">
-            <UInput icon="mingcute:markdown-line" size="xl" variant="outline" v-model="title" placeholder="Document Title" />
+        <UTooltip arrow :kbds="['meta', 'Enter']" text="Rename">
+            <UInput ref="titleInput" icon="mingcute:markdown-line" size="xl" variant="outline" v-model="title"
+                placeholder="Document Title" />
         </UTooltip>
-        <UTooltip arrow text="Swap layouts">
+        <UTooltip arrow :kbds="['meta', 'S']" text="Swap layouts">
             <UButton icon="mingcute:transfer-3-line" size="xl" variant="solid" @click="swapLayouts" />
         </UTooltip>
     </div>
