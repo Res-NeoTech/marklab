@@ -33,15 +33,16 @@ const items = ref<NavigationMenuItem[]>([
     icon: 'mingcute:file-export-line',
     children: [
       {
-        label: 'PDF',
-        description: 'Export this document to PDF file.',
-        icon: 'mingcute:pdf-line'
-      },
-      {
         label: 'Markdown',
         description: 'Export this document to Markdown file.',
         to: '/export/markdown',
         icon: 'mingcute:markdown-line'
+      },
+      {
+        label: 'Text',
+        description: 'Export this document to TXT file.',
+        to: '/export/text',
+        icon: 'mingcute:text-fill'
       },
     ]
   },

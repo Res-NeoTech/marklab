@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const documentStore = useDocumentStore();
 
-exportMarkdown(documentStore.markdown, documentStore.title);
+exportText(documentStore.markdown, documentStore.title);
 
 navigateTo("/");
 </script>
