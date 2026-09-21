@@ -8,6 +8,13 @@
       "when": 1788787537329,
       "tag": "0000_blue_tombstone",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789987626227,
+      "tag": "0001_overconfident_guardian",
+      "breakpoints": true
     }
   ]
 }
