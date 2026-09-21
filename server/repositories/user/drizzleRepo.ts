@@ -56,7 +56,7 @@ export class UserRepository implements IUserRepository {
         const user = result[0]
 
         if (!user) {
-            throw new Error('Failed to create user')
+            throw new Error('Failed to create new account.')
         }
 
         return User.create(user)
