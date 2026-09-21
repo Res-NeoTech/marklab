@@ -24,3 +24,7 @@ Je me suis concentrée aujourd'hui sur l'expérience utilisateur. Avant la grand
 ### 15.09.2026
 
 La prémiere partie du cours avant la pause, j'ai pris le temps à mettre en place la réaction de l'application sur certains touches clavier pour rendre **UX** de l'application plus fluide et intuitive. Après la grande pause, j'ai pu implementer l'exportation du document courant vers **.md** et **.txt**. Vers la fin, j'ai déjà commencé à utiliser l'outil que j'ai developpé pour rédiger ce journal de bord. Vu que j'ai déjà implementé l'exportation, je prends un jour d'avance sur le planning prévu.
+
+### 21.09.2026
+
+Aujourd'hui je débute enfin le développement back-end. La prémiere heure du cours j'ai fait les pages de connexion, tels que **Sign-Up** et **Log-In**. C'était assez facile à faire parce que **Nuxt UI** fournit déjà un composant qu'il me faut, donc je l'ai just adapté pour mes besoins. La deuxiéme heure j'ai également implementé les schemas de validation avec la librairie **Zod**. Ca m'a permis de créer une schéma unique qui va être utilisée dans le Front-End(surligner les erreurs) et dans le Back-End(valider les données côté-serveur). Après la grande pause, j'ai réussi à établir la connexion avec **PostgresSQL** via **Drizzle ORM**(cette fois dans le code) ainsi qu'implémenter le repository pour la table `users`. La dérniere heure, j'ai implementé le service d'authentification avec les fonctions `signup()` et `login()`. J'ai utilisé **Argon2ID** come hachage des mots de passe parce que c'est un algo le plus fort pour le moment.
