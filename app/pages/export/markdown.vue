@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const documentStore = useDocumentStore();
 
-if (!documentStore.markdown) {
+if (!documentStore.markdown || documentStore.markdown.trim() === "") {
     navigateTo("/");
 }
 

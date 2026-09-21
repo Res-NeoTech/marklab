@@ -20,7 +20,7 @@ export const downloadFile = (
 export const exportMarkdown = (markdown: string, title: string) => {
     downloadFile(
         markdown,
-        `${title || 'document'}.md`,
+        `${title || 'Untitled Document'}.md`,
         'text/markdown;charset=utf-8',
     )
 }
@@ -28,7 +28,7 @@ export const exportMarkdown = (markdown: string, title: string) => {
 export const exportText = (markdown: string, title: string) => {
     downloadFile(
         markdown,
-        `${title || 'document'}.txt`,
+        `${title || 'Untitled Document'}.txt`,
         'text/plain;charset=utf-8',
     )
 }
