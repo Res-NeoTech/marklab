@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { AuthFormField } from '@nuxt/ui'
+import type { AuthFormField, FormSubmitEvent } from '@nuxt/ui'
 
 useHead({
     title: `Log-In | MarkLab`,
@@ -12,7 +12,7 @@ const fields = ref<AuthFormField[]>([
     {
         name: 'email',
         type: 'email',
-        label: 'Email'
+        label: 'E-mail'
     },
     {
         name: 'password',
@@ -20,13 +20,17 @@ const fields = ref<AuthFormField[]>([
         label: 'Password'
     }
 ])
+
+function onSubmit(payload: FormSubmitEvent<LoginSchema>) {
+    console.log('Submitted', payload)
+}
 </script>
 
 <template>
     <div class="min-h-[calc(100vh-8rem)] flex items-center justify-center p-4">
         <UPageCard class="w-full max-w-md">
             <UAuthForm title="Log-In" description="Enter your credentials to access your account."
-                icon="cuida:login-outline" :fields="fields" class="max-w-md">
+                icon="cuida:login-outline" :fields="fields" :schema="loginSchema" class="max-w-md" @submit="onSubmit">
                 <template #footer>
                     Don't have an account? <ULink to="/sign-up" class="text-primary font-medium">Sign-Up</ULink>.
                 </template>
