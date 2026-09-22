@@ -3,7 +3,7 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 
 const { fetchUser, isAuthenticated } = useAuth();
 
-await callOnce('auth-user', fetchUser);
+await fetchUser();
 
 const items = computed<NavigationMenuItem[]>(() => [
   {
@@ -75,6 +75,7 @@ const items = computed<NavigationMenuItem[]>(() => [
           label: 'Sign-Up',
           description: 'Create a new account.',
           icon: 'line-md:account-add',
+          to: '/sign-up',
         },
       ],
   },
