@@ -3,6 +3,7 @@ import { UserRepository } from '~~/server/repositories/user/drizzleRepo'
 import { AuthService, EmailAlreadyExistsError } from '~~/server/services/auth.service'
 import { db } from '~~/server/db'
 import { ZodError } from 'zod'
+import { signToken } from '~~/server/auth/jwt'
 
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
@@ -19,8 +20,23 @@ export default defineEventHandler(async (event) => {
             data.password
         )
 
+        const token = await signToken(user.id)
+
+        setCookie(event, 'auth_token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
+            maxAge: 60 * 60 * 24 * 31,
+            path: '/',
+        })
+
         return {
-            user,
+            user: {
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                createdAt: user.createdAt,
+            },
         }
     } catch (error) {
         if (error instanceof ZodError) {

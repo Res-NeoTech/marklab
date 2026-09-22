@@ -21,6 +21,10 @@ export default defineNuxtConfig({
     'pinia-plugin-persistedstate/nuxt'
   ],
 
+  runtimeConfig: {
+    jwtSecret: process.env.JWT_SECRET,
+  },
+
   mdc: {
     highlight: {
       langs: Object.keys(bundledLanguages) as BundledLanguage[]

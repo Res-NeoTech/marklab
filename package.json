@@ -37,6 +37,7 @@
     "argon2": "^0.45.1",
     "drizzle-orm": "^0.45.2",
     "eslint": "^10.9.1",
+    "jose": "^6.2.12",
     "nuxt": "^4.5.2",
     "pinia": "^4.0.3",
     "pinia-plugin-persistedstate": "^4.7.1",
