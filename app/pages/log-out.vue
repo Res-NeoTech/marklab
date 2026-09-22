@@ -7,5 +7,5 @@ const { logout } = useAuth();
 
 logout();
 
-navigateTo("/log-in");
+navigateTo("/");
 </script>
