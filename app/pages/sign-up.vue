@@ -9,6 +9,10 @@ useHead({
     ],
 });
 
+definePageMeta({
+    middleware: 'guest',
+})
+
 const toast = useToast()
 
 const fields = ref<AuthFormField[]>([
