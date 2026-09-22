@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
-const items = ref<NavigationMenuItem[]>([
+const { fetchUser, isAuthenticated } = useAuth();
+
+await callOnce('auth-user', fetchUser);
+
+const items = computed<NavigationMenuItem[]>(() => [
   {
     label: 'Document',
     icon: 'mingcute:document-2-line',
@@ -9,25 +13,26 @@ const items = ref<NavigationMenuItem[]>([
       {
         label: 'New',
         description: 'Create new blank document.',
-        icon: 'mingcute:file-new-line'
+        icon: 'mingcute:file-new-line',
       },
       {
         label: 'Create A Copy',
         description: 'Clone your existing document.',
-        icon: 'mingcute:copy-2-line'
+        icon: 'mingcute:copy-2-line',
       },
       {
         label: 'Remove',
         description: 'Remove your existing document.',
-        icon: 'mingcute:delete-2-line'
+        icon: 'mingcute:delete-2-line',
       },
       {
         label: 'My Documents',
         description: 'View your saved documents.',
-        icon: 'mingcute:document-2-line'
+        icon: 'mingcute:document-2-line',
       },
-    ]
+    ],
   },
+
   {
     label: 'Export',
     icon: 'mingcute:file-export-line',
@@ -36,34 +41,43 @@ const items = ref<NavigationMenuItem[]>([
         label: 'Markdown',
         description: 'Export this document to Markdown file.',
         to: '/export/markdown',
-        icon: 'mingcute:markdown-line'
+        icon: 'mingcute:markdown-line',
       },
       {
         label: 'Text',
         description: 'Export this document to TXT file.',
         to: '/export/text',
-        icon: 'mingcute:text-fill'
+        icon: 'mingcute:text-fill',
       },
-    ]
+    ],
   },
+
   {
     label: 'Account',
     icon: 'akar-icons:person',
-    children: [
-      {
-        label: 'Log-In',
-        icon: 'cuida:login-outline',
-        description: 'Log-In to your existing account.',
-        to: '/log-in'
-      },
-      {
-        label: 'Sign-Up',
-        icon: 'line-md:account-add',
-        description: 'Create a new account.',
-        to: '/sign-up'
-      },
-    ]
-  }
+    children: isAuthenticated.value
+      ? [
+        {
+          label: 'Log-Out',
+          description: 'Log-Out from this account.',
+          icon: 'gg:log-off',
+          to: '/log-out',
+        },
+      ]
+      : [
+        {
+          label: 'Log-In',
+          description: 'Log-In to your existing account.',
+          icon: 'cuida:login-outline',
+          to: '/log-in',
+        },
+        {
+          label: 'Sign-Up',
+          description: 'Create a new account.',
+          icon: 'line-md:account-add',
+        },
+      ],
+  },
 ])
 </script>
 
@@ -91,8 +105,8 @@ const items = ref<NavigationMenuItem[]>([
       <template #right>
         <UButton icon="i-simple-icons-github" color="neutral" variant="ghost" to="https://github.com/Res-NeoTech"
           target="_blank" aria-label="GitHub" />
-        <UButton icon="mingcute:information-line" color="neutral" variant="ghost" to="https://maksym.ch"
-          target="_blank" aria-label="GitHub" />
+        <UButton icon="mingcute:information-line" color="neutral" variant="ghost" to="https://maksym.ch" target="_blank"
+          aria-label="GitHub" />
       </template>
     </UFooter>
   </UApp>
