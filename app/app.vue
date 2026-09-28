@@ -7,30 +7,9 @@ await fetchUser();
 
 const items = computed<NavigationMenuItem[]>(() => [
   {
-    label: 'Document',
+    label: 'Documents',
     icon: 'mingcute:document-2-line',
-    children: [
-      {
-        label: 'New',
-        description: 'Create new blank document.',
-        icon: 'mingcute:file-new-line',
-      },
-      {
-        label: 'Create A Copy',
-        description: 'Clone your existing document.',
-        icon: 'mingcute:copy-2-line',
-      },
-      {
-        label: 'Remove',
-        description: 'Remove your existing document.',
-        icon: 'mingcute:delete-2-line',
-      },
-      {
-        label: 'My Documents',
-        description: 'View your saved documents.',
-        icon: 'mingcute:document-2-line',
-      },
-    ],
+    to: '/documents'
   },
 
   {
@@ -39,13 +18,13 @@ const items = computed<NavigationMenuItem[]>(() => [
     children: [
       {
         label: 'Markdown',
-        description: 'Export this document to Markdown file.',
+        description: 'Export latest document to Markdown file.',
         to: '/export/markdown',
         icon: 'mingcute:markdown-line',
       },
       {
         label: 'Text',
-        description: 'Export this document to TXT file.',
+        description: 'Export latest document to TXT file.',
         to: '/export/text',
         icon: 'mingcute:text-fill',
       },
