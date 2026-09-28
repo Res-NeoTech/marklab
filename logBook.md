@@ -36,3 +36,7 @@ Ce jour-là, j'ai pris le temps avant la grande pause pour finir l'authentificat
 const { fetchUser, isAuthenticated, user } = useAuth();
 ```
 n'importe où dans l'application, pour avoir les informations sur l'utilisateur sans faire les fetch supplementaires. Le reste du cours, j'ai respectivement finit la partie d'authentification en implémentant le **Log-Out** et les **Middlewares** correspondants qui rédirigent l'utilisateur selon son état de connexion. Le fait que j'ai pris l'avance m'a beaucoup aidé, parce que je reste bien dans mon planning en ayant une petite marge du temps.
+
+### 28.09.2026
+
+Aujourd'hui j'a débuté le développement de la gestion des documents. Cette fonctionalité est la plus importante parce que après l'implémentation de la gestion des documents, on peut considérer le projet techniquement finit. Tout d'abord la prémiere heure, j'ai pris la structure précedante de **User** pour implémenter *la classe, le repository et le service*. La seconde moitié du cours, j'ai fait la page de gestion des documents. En utilisant les composants de **Nuxt UI** j'ai pu implémenter cette page assez vite, ainsi que réfactoriser la page d'édition pour pouvoir l'utiliser avec les documents existant dans la base des données. Vers la fin, j'ai réussi à implémenter la **sauvegarde automatique**.
