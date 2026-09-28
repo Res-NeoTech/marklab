@@ -21,3 +21,24 @@ export const signupSchema = z.object({
 )
 
 export type SignupSchema = z.output<typeof signupSchema>
+
+export const documentIdSchema = z.object({
+    id: z.uuid('Document ID must be a valid UUID.'),
+})
+
+export const createDocumentSchema = z.object({
+    title: z.string('Must be a valid string.')
+        .trim()
+        .min(1, 'Title cannot be empty.')
+        .max(255, 'Title must be 255 characters or fewer.')
+        .default('New Document'),
+    content: z.string('Must be a valid string.').default(''),
+})
+
+export const updateDocumentSchema = z.object({
+    title: z.string('Must be a valid string.')
+        .trim()
+        .min(1, 'Title cannot be empty.')
+        .max(255, 'Title must be 255 characters or fewer.'),
+    content: z.string('Must be a valid string.'),
+})
