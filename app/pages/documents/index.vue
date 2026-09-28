@@ -62,14 +62,14 @@ const createDocument = async () => {
             body: {},
         })
 
-        await refresh()
-
         toast.add({
             title: 'Document created',
-            description: `"${response.document.title}" is now in your library.`,
+            description: `Opening "${response.document.title}".`,
             icon: 'mingcute:file-new-line',
             color: 'success',
         })
+
+        await navigateTo(`/documents/${response.document.id}`)
     } catch (error) {
         const fetchError = error as FetchError
 
@@ -142,12 +142,9 @@ const createDocument = async () => {
                 </div>
 
                 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    <UCard
-                        v-for="document in documents"
-                        :key="document.id"
-                        class="group transition-shadow hover:shadow-md"
-                        :ui="{ body: 'space-y-5' }"
-                    >
+                    <NuxtLink v-for="document in documents" :key="document.id" :to="`/documents/${document.id}`"
+                        class="block rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                        <UCard class="group transition-shadow hover:shadow-md" :ui="{ body: 'space-y-5' }">
                         <div class="flex items-start gap-3">
                             <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                 <UIcon name="mingcute:markdown-line" class="size-5" />
@@ -164,7 +161,8 @@ const createDocument = async () => {
                             <p>Updated {{ formatDate(document.updatedAt) }}</p>
                             <p class="mt-1">Created {{ formatDate(document.createdAt) }}</p>
                         </div>
-                    </UCard>
+                        </UCard>
+                    </NuxtLink>
                 </div>
             </section>
 

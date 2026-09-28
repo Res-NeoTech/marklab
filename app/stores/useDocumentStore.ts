@@ -5,8 +5,4 @@ export const useDocumentStore = defineStore('document', {
 		title: 'New Document',
 		markdown: '',
 	}),
-
-	persist: {
-        storage: typeof window !== 'undefined' ? localStorage : undefined,
-    },
 });
