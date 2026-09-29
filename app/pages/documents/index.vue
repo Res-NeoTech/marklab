@@ -98,28 +98,17 @@ const createDocument = async () => {
 
             <div class="flex shrink-0 gap-2">
                 <UTooltip text="Refresh documents">
-                    <UButton
-                        icon="mingcute:refresh-2-line"
-                        color="neutral"
-                        variant="ghost"
-                        :loading="pending"
-                        aria-label="Refresh documents"
-                        @click="refresh"
-                    />
+                    <UButton icon="mingcute:refresh-2-line" color="neutral" variant="ghost" :loading="pending"
+                        aria-label="Refresh documents" @click="refresh" />
                 </UTooltip>
-                <UButton label="New document" icon="mingcute:file-new-line" :loading="creating" @click="createDocument" />
+                <UButton label="New document" icon="mingcute:file-new-line" :loading="creating"
+                    @click="createDocument" />
             </div>
         </header>
 
         <div class="mt-8">
-            <UAlert
-                v-if="error"
-                color="error"
-                variant="subtle"
-                title="Documents could not be loaded"
-                :description="errorMessage"
-                icon="mingcute:warning-line"
-            >
+            <UAlert v-if="error" color="error" variant="subtle" title="Documents could not be loaded"
+                :description="errorMessage" icon="mingcute:warning-line">
                 <template #actions>
                     <UButton label="Try again" color="error" variant="soft" size="sm" @click="refresh" />
                 </template>
@@ -145,22 +134,23 @@ const createDocument = async () => {
                     <NuxtLink v-for="document in documents" :key="document.id" :to="`/documents/${document.id}`"
                         class="block rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
                         <UCard class="group transition-shadow hover:shadow-md" :ui="{ body: 'space-y-5' }">
-                        <div class="flex items-start gap-3">
-                            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                <UIcon name="mingcute:markdown-line" class="size-5" />
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                    <UIcon name="mingcute:markdown-line" class="size-5" />
+                                </div>
+                                <div class="min-w-0">
+                                    <h2 class="truncate font-semibold text-highlighted" :title="document.title">
+                                        {{ document.title }}
+                                    </h2>
+                                    <p class="mt-1 text-sm text-muted">Markdown document</p>
+                                </div>
                             </div>
-                            <div class="min-w-0">
-                                <h2 class="truncate font-semibold text-highlighted" :title="document.title">
-                                    {{ document.title }}
-                                </h2>
-                                <p class="mt-1 text-sm text-muted">Markdown document</p>
-                            </div>
-                        </div>
 
-                        <div class="border-t border-default pt-4 text-sm text-muted">
-                            <p>Updated {{ formatDate(document.updatedAt) }}</p>
-                            <p class="mt-1">Created {{ formatDate(document.createdAt) }}</p>
-                        </div>
+                            <div class="border-t border-default pt-4 text-sm text-muted">
+                                <p>Updated {{ formatDate(document.updatedAt) }}</p>
+                                <p class="mt-1">Created {{ formatDate(document.createdAt) }}</p>
+                            </div>
                         </UCard>
                     </NuxtLink>
                 </div>
@@ -174,13 +164,8 @@ const createDocument = async () => {
                 <p class="mx-auto mt-2 max-w-sm text-sm text-muted">
                     Create your first document to start writing in Markdown.
                 </p>
-                <UButton
-                    class="mt-6"
-                    label="Create your first document"
-                    icon="mingcute:file-new-line"
-                    :loading="creating"
-                    @click="createDocument"
-                />
+                <UButton class="mt-6" label="Create your first document" icon="mingcute:file-new-line"
+                    :loading="creating" @click="createDocument" />
             </section>
         </div>
     </div>

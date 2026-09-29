@@ -54,6 +54,7 @@ const titleInput = useTemplateRef('titleInput')
 const textarea = ref<HTMLTextAreaElement | null>(null)
 const saveState = ref<SaveState>('saved')
 const isLoaded = ref(false)
+const toast = useToast()
 
 let savedTitle = ''
 let savedContent = ''
@@ -128,6 +129,35 @@ const saveDocument = async (id: string, version: number) => {
         if (version === revision) {
             saveState.value = 'error'
         }
+    }
+}
+
+const deleteDocument = async (id: string) => {
+    const title = documentStore.title
+
+    try {
+        await $fetch(`/api/docs/${id}`, {
+            method: 'DELETE',
+        })
+
+        toast.add({
+            title: 'Document deleted',
+            description: `Successfully deleted "${title}".`,
+            icon: 'mingcute:delete-2-line',
+            color: 'success',
+        })
+
+        documentStore.$reset()
+        await navigateTo('/documents')
+    } catch (error) {
+        console.error(error)
+
+        toast.add({
+            title: 'Deletion failure',
+            description: `Failed to delete "${title}".`,
+            icon: 'mingcute:delete-2-line',
+            color: 'error',
+        })
     }
 }
 
@@ -238,6 +268,10 @@ const saveLabel = computed(() => {
             </div>
             <UTooltip arrow text="Swap layouts">
                 <UButton icon="mingcute:transfer-3-line" size="xl" variant="solid" @click="swapLayouts" />
+            </UTooltip>
+            <UTooltip arrow text="Delete document">
+                <UButton icon="mingcute:delete-2-line" size="xl" variant="solid" color="error"
+                    @click="deleteDocument(documentId)" />
             </UTooltip>
 
         </div>
