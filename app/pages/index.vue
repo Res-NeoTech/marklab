@@ -18,6 +18,10 @@ useHead({
     ],
 });
 
+definePageMeta({
+    middleware: 'guest',
+})
+
 watch(title, (newVal) => {
     documentStore.title = newVal;
     document.title = `${newVal || 'Untitled document'} | MarkLab`;

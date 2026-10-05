@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FetchError } from 'ofetch'
+import type { User } from '~~/server/domain/user'
 
 type DocumentItem = {
     id: string
@@ -32,6 +33,7 @@ const creating = ref(false)
 
 const { data, pending, error, refresh } = await useFetch<DocumentsResponse>('/api/docs')
 
+const { user } = useAuth();
 const documents = computed(() => data.value?.documents ?? [])
 const errorMessage = computed(() => {
     const fetchError = error.value as FetchError | null
@@ -90,7 +92,7 @@ const createDocument = async () => {
         <header class="flex flex-col gap-6 border-b border-default pb-8 sm:flex-row sm:items-end sm:justify-between">
             <div class="space-y-2">
                 <p class="text-sm font-medium text-primary">Workspace</p>
-                <h1 class="text-3xl font-bold tracking-tight text-highlighted sm:text-4xl">My documents</h1>
+                <h1 class="text-3xl font-bold tracking-tight text-highlighted sm:text-4xl">{{ user ? `${user.username}'s` : "My" }} documents</h1>
                 <p class="max-w-2xl text-base text-muted">
                     Create, find, and continue working on your Markdown documents.
                 </p>

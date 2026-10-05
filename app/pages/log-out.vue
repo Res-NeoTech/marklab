@@ -5,7 +5,5 @@ definePageMeta({
 
 const { logout } = useAuth();
 
-logout();
-
-navigateTo("/");
+logout().then(() => reloadNuxtApp());
 </script>

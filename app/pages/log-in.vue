@@ -37,7 +37,7 @@ async function onSubmit(
             body: event.data,
         })
 
-        navigateTo('/documents');
+        reloadNuxtApp();
     } catch (error) {
         const fetchError = error as FetchError
 
