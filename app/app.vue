@@ -83,7 +83,7 @@ const items = computed<NavigationMenuItem[]>(() => [
         <p class="text-muted text-sm">&copy; {{ new Date().getFullYear() }} MarkLab</p>
       </template>
       <template #right>
-        <UButton icon="i-simple-icons-github" color="neutral" variant="ghost" to="https://github.com/Res-NeoTech"
+        <UButton icon="i-simple-icons-github" color="neutral" variant="ghost" to="https://github.com/Res-NeoTech/marklab"
           target="_blank" aria-label="GitHub" />
         <UButton icon="mingcute:information-line" color="neutral" variant="ghost" to="https://maksym.ch" target="_blank"
           aria-label="GitHub" />
