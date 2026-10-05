@@ -44,3 +44,7 @@ Aujourd'hui j'a débuté le développement de la gestion des documents. Cette fo
 ### 29.09.2026
 
 Ce jour là, j'ai fini le projet en implémentant la suppression du document. ça m'a pris environ 30 minutes à faire. Le reste du temps, je commence maintenant la dockerization du projet.
+
+### 05.10.2026
+
+Je n'ai pas fait trop de modification aujourd'hui. Vu que le cours passé j'ai décidé d'hebérger l'application sur **Vercel** au lieu de le dockerizer. J'ai remarqué qu'il existe des petits bugs de redirection après l'authentification réussie. Donc j'ai pris le temps à corriger cela et redeployer de nouveau l'application. En sachant que Vercel deploie mon application sur l'environnement de production à chaque commit dans la branche principale, je n'ai pas besoin de faire quelque-chose de ma part, *c'est tout à fait automatique*. J'ai également changé la configuration par défaut du **Nuxt UI** pour personnaliser l'interface. Le reste du temps, j'ai commencé à rédiger la documentation technique du projet et `README.md` du repo.
