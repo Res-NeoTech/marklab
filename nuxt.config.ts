@@ -10,6 +10,20 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/main.css'],
 
+  appConfig: {
+    ui: {
+      colors: {
+      primary: 'teal',
+      secondary: 'blue',
+      success: 'green',
+      info: 'blue',
+      warning: 'yellow',
+      error: 'red',
+      neutral: 'mist'
+      }
+    }
+  },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/image',
