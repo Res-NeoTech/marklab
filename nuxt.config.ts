@@ -25,11 +25,8 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/eslint',
-    '@nuxt/image',
     '@nuxt/ui',
     '@nuxthub/core',
-    '@formkit/auto-animate',
     '@nuxtjs/mdc',
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt'
