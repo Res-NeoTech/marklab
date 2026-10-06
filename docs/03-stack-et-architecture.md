@@ -5,7 +5,7 @@
 | Domaine | Technologie | Rôle dans MarkLab |
 | --- | --- | --- |
 | Application web | Nuxt 4, Vue 3, TypeScript | Pages, rendu, routage, serveur Nitro et typage. |
-| Interface | Nuxt UI, Tailwind CSS, Auto Animate | Composants, styles, thème clair/sombre et animations. |
+| Interface | Nuxt UI, Tailwind CSS | Composants, styles et thème clair/sombre. |
 | État client | Pinia, `pinia-plugin-persistedstate` | Document en cours et préférence d’affichage. |
 | Markdown | Nuxt MDC | Rendu du Markdown dans l’aperçu. |
 | Validation | Zod | Validation partagée des données reçues par l’API et des formulaires. |

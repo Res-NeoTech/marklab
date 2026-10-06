@@ -4,7 +4,7 @@
 
 MarkLab est une application web de rédaction Markdown. Elle permet à un utilisateur de créer un compte, d’écrire des documents dans un éditeur à deux panneaux, de prévisualiser le résultat instantanément et de retrouver ses documents dans un espace privé.
 
-Le projet est réalisé dans une optique de travail pratique individuel (TPI) CFC. Cette documentation décrit l’état effectivement implémenté du projet au 5 octobre 2026. Elle est structurée pour être publiée avec [MkDocs](https://www.mkdocs.org/).
+Le projet est réalisé en tant que travail pratique individuel (TPI) CFC en blanc par **Maksym Ptytsia**.
 
 ## Périmètre implémenté
 
@@ -25,13 +25,3 @@ Le projet est réalisé dans une optique de travail pratique individuel (TPI) CF
 | [Sécurité](06-securite.md) | Contrôles de sécurité en place et limites. |
 | [Installation et exploitation](07-installation-et-exploitation.md) | Préparation de l’environnement et commandes. |
 | [Choix techniques et extraits](08-decisions-et-extraits.md) | Justification de choix et extraits représentatifs. |
-
-## Publication locale avec MkDocs
-
-Le fichier `mkdocs.yml` à la racine définit déjà la navigation. Après avoir installé MkDocs dans l’environnement choisi, la documentation peut être prévisualisée avec :
-
-```bash
-mkdocs serve
-```
-
-Puis elle est accessible par défaut à l’adresse indiquée par MkDocs, généralement `http://127.0.0.1:8000/`.

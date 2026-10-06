@@ -75,6 +75,4 @@ Cette redondance volontaire apporte une défense supplémentaire au niveau de la
 ## Évolutions techniques pertinentes
 
 - Ajouter une suite de tests Vitest pour les services et les endpoints.
-- Exposer des scripts Drizzle Kit reproductibles (`generate` et `migrate`).
-- Ajouter un fichier Docker et une configuration de déploiement effective si la conteneurisation est retenue.
 - Prévoir la gestion des conflits d’édition si l’application doit permettre plusieurs sessions ou de la collaboration.
